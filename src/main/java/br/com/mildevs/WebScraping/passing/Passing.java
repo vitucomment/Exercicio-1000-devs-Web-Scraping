@@ -1,6 +1,5 @@
 package br.com.mildevs.WebScraping.passing;
 
-
 public class Passing {
 
 	private String empresa;
