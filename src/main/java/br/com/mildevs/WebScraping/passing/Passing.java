@@ -1,21 +1,17 @@
 package br.com.mildevs.WebScraping.passing;
 
-import java.math.BigDecimal;
 
 public class Passing {
 
 	private String empresa;
 	private String vaga;
-	private String cidade;
 	private String tipoDeVaga;
-	private BigDecimal salario;
+	private String salario;
 	private String link;
 
-	public Passing(String empresa, String vaga, String cidade, String tipoDeVaga, BigDecimal salario, String link) {
-		super();
+	public Passing(String empresa, String vaga, String tipoDeVaga, String salario, String link) {
 		this.empresa = empresa;
 		this.vaga = vaga;
-		this.cidade = cidade;
 		this.tipoDeVaga = tipoDeVaga;
 		this.salario = salario;
 		this.link = link;
@@ -37,14 +33,6 @@ public class Passing {
 		this.vaga = vaga;
 	}
 
-	public String getCidade() {
-		return cidade;
-	}
-
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
-	}
-
 	public String getTipoDeVaga() {
 		return tipoDeVaga;
 	}
@@ -53,11 +41,11 @@ public class Passing {
 		this.tipoDeVaga = tipoDeVaga;
 	}
 
-	public BigDecimal getSalario() {
+	public String getSalario() {
 		return salario;
 	}
 
-	public void setSalario(BigDecimal salario) {
+	public void setSalario(String salario) {
 		this.salario = salario;
 	}
 
@@ -69,4 +57,13 @@ public class Passing {
 		this.link = link;
 	}
 
+	@Override
+	public String toString() {
+		String toString = ("Empresa: " + this.empresa + "\n"
+				+ "Titulo da vaga: " + this.vaga + "\n"
+				+ "Modo de trabalho: " + this.tipoDeVaga + "\n"
+				+ "Salario: " + this.salario + "\n"
+				+ "Link da vaga: " + this.link + "\n");
+		return toString;
+	}
 }

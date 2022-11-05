@@ -7,7 +7,6 @@ import java.util.List;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 
 import br.com.mildevs.WebScraping.passing.Passing;
 
@@ -15,7 +14,7 @@ public class WebScrapingApplication {
 
 	public static void main(String[] args) throws IOException {
 
-		String url = "https://br.indeed.com/jobs?q=desenvolvedor+junior&l=&vjk=ccb0e3243058cffe";
+		String url = "https://br.indeed.com/jobs?q=desenvolvedor+java";
 
 		Document doc = Jsoup.connect(url).userAgent("Edge").get();
 
@@ -33,27 +32,24 @@ public class WebScrapingApplication {
 			boolean salarioIsEmpty = vaga.getElementsByClass("metadata salary-snippet-container").isEmpty();
 			
 			if (!tituloIsEmpty && !empresaIsEmpty && !tipoDeVagaIsEmpty) {
-				List<Element> titulo = vaga.getElementsByTag("h2");
-				
-				Elements link = vaga.select("a[href]");
-				
-				List<Element> empresa = vaga.getElementsByClass("companyName");
-				List<Element> tipoDeVaga = vaga.getElementsByClass("companyLocation");
-				
-				System.out.println(titulo.get(0).text());
-				System.out.println(link.attr("abs:href"));
-				System.out.println(empresa.get(0).text());
-				System.out.println(tipoDeVaga.get(0).text().split(",")[0]);
+				String empresa = vaga.getElementsByClass("companyName").get(0).text();
+				String titulo = vaga.getElementsByTag("h2").get(0).text();
+				String tipoDeVaga = vaga.getElementsByClass("companyLocation").get(0).text().split(",")[0];
+				String salario = "Não informado";
+				String link = vaga.select("a[href]").attr("abs:href");
 				if(!salarioIsEmpty) {
-					List<Element> salario = vaga.getElementsByClass("metadata salary-snippet-container");
-					System.out.println(salario.get(0).text());
+					salario = vaga.getElementsByClass("metadata salary-snippet-container").get(0).text();
 				}
-				System.out.println();
+				
+				Passing passing = new Passing(empresa, titulo, tipoDeVaga, salario, link);
+				
+				vagasObject.add(passing);
 			}
-
-			
 		}
-
+		
+		for(Passing vaga : vagasObject) {
+			System.out.println(vaga);
+		}
 	}
 
 }
