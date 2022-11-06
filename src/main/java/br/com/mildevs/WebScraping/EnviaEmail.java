@@ -1,6 +1,8 @@
 package br.com.mildevs.WebScraping;
 
 import java.util.Properties;
+import java.util.Scanner;
+
 import javax.mail.Address;
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -12,7 +14,7 @@ import javax.mail.internet.MimeMessage;
 
 public class EnviaEmail {
 
-	public void EnviarEmail(String messagem, String email) {
+	public static void EnviarEmail(String messagem, String email) {
 		Properties props = new Properties();
 
 		parametrosDeConexao(props);
@@ -45,5 +47,15 @@ public class EnviaEmail {
 		props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
 		props.put("mail.smtp.auth", "true");
 		props.put("mail.smtp.port", "465");
+	}
+
+	static void enviar(String vagasString) {
+		System.out.print("\nTudo pronto, agora informe seu email: ");
+		Scanner input = new Scanner(System.in);
+		String email = input.nextLine();
+		System.out.println();
+		EnviarEmail(vagasString, email);
+		System.out.println("Olhe seu email :)");
+		input.close();
 	}
 }
