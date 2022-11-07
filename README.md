@@ -51,10 +51,13 @@ O objetivo do projeto é facilitar e adiantar uma parte da busca de vagas, agreg
     <img width="48px" alt="Logo do Eclipse IDE" src="https://user-images.githubusercontent.com/12565871/49321219-6cdf9100-f506-11e8-82f5-b7a40bba3e86.png">
   </a>
   <a href="https://maven.apache.org/">
-    <img width="48px" alt="Logo do Eclipse IDE" src="https://roufid.com/wp-content/uploads/2016/05/eyecatch-maven.png">
+    <img width="48px" alt="Logo do gerenciador de dependencias Maven" src="https://roufid.com/wp-content/uploads/2016/05/eyecatch-maven.png">
   </a>
   <a href="https://jsoup.org/">
-    <img width="60px" alt="Logo do Eclipse IDE" src="https://cdn.javacodeexamples.com/wp-content/uploads/Jsoup.png">
+    <img width="60px" alt="Logo da Api Jsoup" src="https://cdn.javacodeexamples.com/wp-content/uploads/Jsoup.png">
+  </a>
+  <a href="https://javaee.github.io/javamail/">
+    <img width="48px" alt="Logo da api Javamail" src="https://www.innovativetechin.com/Uploads/Images/Icon/1586345774icon.png">
   </a>
   
   
