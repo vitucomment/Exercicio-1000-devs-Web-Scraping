@@ -24,11 +24,14 @@ public class WebScrapingApplication {
 		List<Passing> vagasObject = new ArrayList<>();
 
 		String[] parametros = config.parametroDeBusca();
+		
 		String urlIndeed = indeed.parametrosDeBusca(parametros);
+		Thread.sleep(500);
 		String urlCatho = catho.parametrosDeBusca(parametros);
 		
 		try {
 			vagasObject.addAll(indeed.listaDeVagas(urlIndeed));
+			Thread.sleep(500);
 			vagasObject.addAll(catho.listaDeVagas(urlCatho));
 		} catch (HttpStatusException ex) {
 			vagasObject.addAll(catho.listaDeVagas(urlCatho));
@@ -36,8 +39,7 @@ public class WebScrapingApplication {
 			vagasObject.addAll(indeed.listaDeVagas(urlIndeed));
 		}
 
-		Thread.sleep(1500);
-
+		Thread.sleep(500);
 		String vagasString = "\n";
 		for (Passing vaga : vagasObject) {
 			vagasString += vaga.toString();
