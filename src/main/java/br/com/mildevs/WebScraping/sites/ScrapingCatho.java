@@ -1,4 +1,4 @@
-package br.com.mildevs.WebScraping;
+package br.com.mildevs.WebScraping.sites;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -7,14 +7,16 @@ import java.util.List;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
+import br.com.mildevs.WebScraping.config.ConfiguracaoWeb;
 import br.com.mildevs.WebScraping.passing.Passing;
+import br.com.mildevs.WebScraping.util.Scraping;
 
 public class ScrapingCatho {
 	
 	Scraping scrap = new Scraping();
 	ConfiguracaoWeb configuracao = new ConfiguracaoWeb();
 	
-	String parametrosDeBusca(String[] parametros) {
+	public String parametrosDeBusca(String[] parametros) {
 		String url = "https://www.catho.com.br/vagas/?pais_id=31&q=";
 		for (int i = 0; i < parametros.length; i++) {
 			url += parametros[i];
@@ -23,7 +25,7 @@ public class ScrapingCatho {
 		return url;
 	}
 
-	List<Passing> listaDeVagas(String url) throws IOException {
+	public List<Passing> listaDeVagas(String url) throws IOException {
 		Document doc = ConfiguracaoWeb.configuracao(url);
 		Element ul = doc.getElementById("search-result");
 		List<Element> vagas = ul.getElementsByTag("li");

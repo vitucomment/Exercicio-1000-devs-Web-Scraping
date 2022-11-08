@@ -6,7 +6,11 @@ import java.util.List;
 
 import org.jsoup.HttpStatusException;
 
+import br.com.mildevs.WebScraping.config.ConfiguracaoWeb;
 import br.com.mildevs.WebScraping.passing.Passing;
+import br.com.mildevs.WebScraping.sites.ScrapingCatho;
+import br.com.mildevs.WebScraping.sites.ScrapingIndeed;
+import br.com.mildevs.WebScraping.util.EnviaEmail;
 
 public class WebScrapingApplication {
 
@@ -20,23 +24,26 @@ public class WebScrapingApplication {
 		List<Passing> vagasObject = new ArrayList<>();
 
 		String[] parametros = config.parametroDeBusca();
-
+		String urlIndeed = indeed.parametrosDeBusca(parametros);
+		String urlCatho = catho.parametrosDeBusca(parametros);
+		
 		try {
-			String url = indeed.parametrosDeBusca(parametros);
-			vagasObject = indeed.listaDeVagas(url);
+			vagasObject.addAll(indeed.listaDeVagas(urlIndeed));
+			vagasObject.addAll(catho.listaDeVagas(urlCatho));
 		} catch (HttpStatusException ex) {
-			String url = catho.parametrosDeBusca(parametros);
-			vagasObject = catho.listaDeVagas(url);
+			vagasObject.addAll(catho.listaDeVagas(urlCatho));
+		} catch (Exception ex) {
+			vagasObject.addAll(indeed.listaDeVagas(urlIndeed));
 		}
-		
+
 		Thread.sleep(1500);
-		
+
 		String vagasString = "\n";
 		for (Passing vaga : vagasObject) {
 			vagasString += vaga.toString();
 			vagasString += "\n";
 		}
-		
+
 		EnviaEmail.enviar(vagasString);
 	}
 }

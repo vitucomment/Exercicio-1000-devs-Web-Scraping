@@ -1,11 +1,10 @@
-package br.com.mildevs.WebScraping;
+package br.com.mildevs.WebScraping.util;
 
 import org.jsoup.nodes.Element;
 
 public class Scraping {
 
-	
-	String empresa(Element vaga, String htmlClass) {
+	public String empresa(Element vaga, String htmlClass) {
 		String empresa = vaga.getElementsByClass(htmlClass).get(0).text();
 		if (empresa.equalsIgnoreCase("empresa confidencialpor que?")) {
 			empresa = "Confidencial";
@@ -13,16 +12,16 @@ public class Scraping {
 		return empresa;
 	}
 
-	String titulo(Element vaga, String htmlClass) {
+	public String titulo(Element vaga, String htmlClass) {
 		return vaga.getElementsByTag(htmlClass).get(0).text();
 	}
 
-	String tipoDeVaga(Element vaga, String htmlClass) {
+	public String tipoDeVaga(Element vaga, String htmlClass) {
 		return vaga.getElementsByClass(htmlClass).get(0).text().split("\\(")[0];
 	}
 
 	
-	String salario(Element vaga, String htmlClass) {
+	public String salario(Element vaga, String htmlClass) {
 		String salario = "Não informado";
 		if (!salarioIsEmpty(vaga)) {
 			return salario = vaga.getElementsByClass(htmlClass).get(0).text();
@@ -32,19 +31,19 @@ public class Scraping {
 
 	}
 
-	String link(Element vaga) {
+	public String link(Element vaga) {
 		return vaga.select("a[href]").attr("abs:href");
 	}
 
-	boolean tituloIsEmpty(Element vaga, String htmlClass) {
+	public boolean tituloIsEmpty(Element vaga, String htmlClass) {
 		return vaga.getElementsByTag(htmlClass).text().equalsIgnoreCase("");
 	}
 
-	boolean empresaIsEmpty(Element vaga, String htmlClass) {
+	public boolean empresaIsEmpty(Element vaga, String htmlClass) {
 		return vaga.getElementsByClass(htmlClass).text().equalsIgnoreCase("");
 	}
 
-	boolean tipoDeVagaIsEmpty(Element vaga, String htmlClass) {
+	public boolean tipoDeVagaIsEmpty(Element vaga, String htmlClass) {
 		return vaga.getElementsByClass(htmlClass).text().equalsIgnoreCase("");
 	}
 

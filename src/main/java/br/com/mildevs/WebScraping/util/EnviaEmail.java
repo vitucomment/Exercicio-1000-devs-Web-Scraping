@@ -1,4 +1,4 @@
-package br.com.mildevs.WebScraping;
+package br.com.mildevs.WebScraping.util;
 
 import java.util.Properties;
 import java.util.Scanner;
@@ -49,7 +49,7 @@ public class EnviaEmail {
 		props.put("mail.smtp.port", "465");
 	}
 
-	static void enviar(String vagasString) {
+	public static void enviar(String vagasString) {
 		System.out.print("\nTudo pronto, agora informe seu email: ");
 		Scanner input = new Scanner(System.in);
 		String email = input.nextLine();
