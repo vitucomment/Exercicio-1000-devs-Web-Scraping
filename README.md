@@ -10,6 +10,7 @@
     • <a href="#descricao">Descrição</a>
     • <a href="#tecnologias">Tecnologias</a>
     • <a href="#Desenvolvedor">Desenvolvedor</a>
+    • <a href="#funcionamento">Funcionamento</a>
 </p>
 
 <h2 id="Projeto Send-me JOBS"> :computer_mouse: Projeto Send-me JOBS?</h2>
@@ -78,3 +79,7 @@ Victor Sousa Almeida
 <p align="center">
 <a href="https://www.linkedin.com/in/devitu-py/">@Linkedin</a>
 </p>
+
+<h2 id="funcionamento">:man: Funcionamento</h2>
+
+   ![](https://github.com/vitucomment/WebScrapingJava/tree/master/gif/gif.gif)
