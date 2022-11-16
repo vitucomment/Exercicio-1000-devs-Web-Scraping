@@ -80,6 +80,6 @@ Victor Sousa Almeida
 <a href="https://www.linkedin.com/in/devitu-py/">@Linkedin</a>
 </p>
 
-<h2 id="funcionamento">:man: Funcionamento</h2>
+<h2 id="funcionamento">:eye_speech_bubble: Funcionamento</h2>
 
    ![gif](https://github.com/vitucomment/WebScrapingJava/blob/master/gif/gif.gif)
